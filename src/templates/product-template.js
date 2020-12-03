@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 
-const ProductTemplate = ({ data: { contentfulProduct } }) => (
+const ProductTemplate = ({ data: { contentfulProduct } }, location) => (
   <Layout>
     <div
       style={{
@@ -20,7 +20,31 @@ const ProductTemplate = ({ data: { contentfulProduct } }) => (
           Added on {contentfulProduct.createdAt}
         </span>
       </h2>
+      <h4>
+        <span role="img" aria-label="money-bag">
+          💰{contentfulProduct.price}
+        </span>
+      </h4>
       <p>{contentfulProduct.description}</p>
+      {/* SnipCart -> Add Item to Cart */}
+      <button
+        style={{
+          marginBottom: "40px",
+          background: "darkorange",
+          color: "white",
+          padding: "0.3rem",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        className="snipcart-add-item"
+        data-item-id={contentfulProduct.slug}
+        data-item-price={contentfulProduct.price}
+        data-item-image={contentfulProduct.image.file.url}
+        data-item-name={contentfulProduct.name}
+        data-item-url="https://streamtechapp.com"
+      >
+        Add to Cart
+      </button>
       <Img
         style={{ margin: "0 auto", maxWidth: 600 }}
         fluid={contentfulProduct.image.fluid}
@@ -32,6 +56,7 @@ const ProductTemplate = ({ data: { contentfulProduct } }) => (
 export const query = graphql`
   query($slug: String!) {
     contentfulProduct(slug: { eq: $slug }) {
+      slug
       name
       price
       description
@@ -39,6 +64,9 @@ export const query = graphql`
       image {
         fluid(maxWidth: 800) {
           ...GatsbyContentfulFluid
+        }
+        file {
+          url
         }
       }
     }

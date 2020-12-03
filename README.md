@@ -9,11 +9,64 @@
 
 GatsbyJS blog and e-commerce shop selling shirts, creating using the Gatsby Default Starter (https://github.com/gatsbyjs/gatsby-starter-default).
 
+- Uses **gatsby-transformer-remark** for parsing Markdown blog posts.
+- Uses **gatsby-remark-images** for processing images in Markdown blog posts. Works similar to Gatsby Image processing where it automatically serves optimized images with lazy loading and reduced file sizes
+- Uses Contentful Headless CMS as a content management system, and the **gatsby-source-contentful** SDK
+
 ## Install
 
     $ npm install
 
 ## Setup
+
+### Accounts
+
+You will need the following accounts in order to set up this project:
+
+- Netlify -> for deployment
+- Contentful -> for product content management
+- SnipCart -> for ecommerce cart
+
+### Contentful
+
+#### Create a new project
+
+1. Click on the Menu (hamburger icon) in the top-left corner
+2. Click on Create Project
+3. Select free Community project
+
+#### Create content model
+
+1. Click on Content model link in app bar
+2. Click on Add content type button
+3. Enter in Product to the Name field and click Create
+4. Click on the Add Field button and add the following fields:
+   - Type: Text; Name: name; Short text, exact search
+   - Type: Number; Name: price; Decimal
+   - Type: Media; Name: image; One file
+   - Type: Text; Name: description; Short text, exact search
+   - Type: Text; Name: slug; Short text, exact search
+   - Type: Boolean; Name: private
+
+#### Create content
+
+1. Click the Content link in app bar
+2. Click the Add Product button
+3. Add your product details
+
+### Create API Keys
+
+1. Click on Settings -> API Keys
+2. Click on Add API Key
+3. Add a name and save
+4. Take note of the Space ID, and Content Delivery API - access token (you will need them as environment variables)
+
+### Environment Variables
+
+Create a .env file in the main project directory with the following variables:
+
+        CONTENTFUL_SPACE_ID=your_contentful_space_id
+        CONTENTFUL_ACCESS_TOKEN=your_contentful_content_delivery_api_access_token
 
 ## Format with Prettier
 

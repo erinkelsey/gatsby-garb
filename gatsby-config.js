@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby Garb`,
-    description: ``,
-    author: `@gatsbyjs`,
+    description: `GatsbyJS blog and e-commerce shop selling shirts, creating using the Gatsby Default Starter.`,
+    author: `EKS Development Inc.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +11,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/posts`,
       },
     },
     `gatsby-transformer-sharp`,

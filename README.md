@@ -23,7 +23,7 @@ GatsbyJS blog and e-commerce shop selling shirts, creating using the Gatsby Defa
 
     $ npm start
 
-OR
+OR:
 
     $ npm run develop
 
@@ -38,6 +38,10 @@ GraphiQL:
 ## Build
 
     $ npm run build
+
+OR:
+
+    $ gatsby build
 
 Run production build locally:
 

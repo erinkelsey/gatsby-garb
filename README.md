@@ -13,6 +13,9 @@ GatsbyJS blog and e-commerce shop selling shirts, creating using the Gatsby Defa
 - Uses **gatsby-remark-images** for processing images in Markdown blog posts. Works similar to Gatsby Image processing where it automatically serves optimized images with lazy loading and reduced file sizes
 - Uses Contentful Headless CMS as a content management system, and **gatsby-source-contentful**
 - Uses SnipCart to manage shopping cart with **gatsby-plugin-snipcart**
+- User authentication with **netlify-identity-widget**
+
+Hosted Example: https://vigorous-ardinghelli-9b2e76.netlify.app
 
 ## Install
 
@@ -69,6 +72,15 @@ You will need the following accounts in order to set up this project:
 3. Click on API Keys
 4. Save the Public Test API Key to your .env file, as described below
 
+### Netlify User Authentication
+
+NOTE: See Deploy section for how to set up site on Netlify
+
+1. Click on the Identity tab
+2. Click the Enable Identity button
+
+IMPORTANT: this will only work when deployed with Netlify
+
 ### Environment Variables
 
 Create a .env file in the main project directory with the following variables:
@@ -113,4 +125,13 @@ Deployed to:
 
     http://localhost:9000/
 
-## Deploy
+## Deploy with Netlify
+
+1. Log in to Netlify -> https://www.netlify.com
+2. Click on the New site from Git button
+3. Click on your hosting provider
+4. You will need to setup Netlify on your hosting provider, and give Netlify access to the repository you want to deploy
+5. Select the repository you want to deploy
+6. Click on the Show Advanced button to put in environment variables
+7. Put in the environment variables listed about
+8. Click Deploy Site button

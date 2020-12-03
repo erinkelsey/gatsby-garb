@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default ({ data, pageContext }) => {
   const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext
@@ -11,6 +12,7 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <SEO title="Blog" />
       <div>
         <h1 style={{ display: "inline-block", borderBottom: "1px solid" }}>
           Gatsby Garb Blog

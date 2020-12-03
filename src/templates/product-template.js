@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 
-const ProductTemplate = ({ data: { contentfulProduct } }, location) => (
+const ProductTemplate = ({ data: { contentfulProduct } }) => (
   <Layout>
     <div
       style={{
@@ -41,7 +41,7 @@ const ProductTemplate = ({ data: { contentfulProduct } }, location) => (
         data-item-price={contentfulProduct.price}
         data-item-image={contentfulProduct.image.file.url}
         data-item-name={contentfulProduct.name}
-        data-item-url="https://streamtechapp.com"
+        data-item-url="https://vigorous-ardinghelli-9b2e76.netlify.app"
       >
         Add to Cart
       </button>
